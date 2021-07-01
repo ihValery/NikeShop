@@ -19,9 +19,9 @@ struct AboutSneaker: View {
                 Text("NIKE AIR")
                     .font(Font.custom("DIN Condensed", size: 15))
                 HStack {
-                    Text("AIR JORDAN 1 MID SE GC")
+                    Text(sneakersData[selectColor].name)
                     Spacer()
-                    Text("¥856")
+                    Text("¥\(sneakersData[selectColor].price)")
                 }
                 .font(Font.custom("DIN Condensed", size: 26))
                 

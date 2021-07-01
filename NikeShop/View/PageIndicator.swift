@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PageIndicator: View {
-    var colorSize: ColorSneaker
+    var colorSize: Sneaker
     @Binding var select: Int
     
     var body: some View {
