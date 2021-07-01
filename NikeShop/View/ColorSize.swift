@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ColorSize: View {
-    @State private var selectColor: Int = 0
+//    @State private var selectColor: Int = 0
+    @Binding var select: Int
     
     var body: some View {
         VStack {
@@ -17,11 +18,11 @@ struct ColorSize: View {
                     Text("COLOR")
                         .font(Font.custom("DIN Condensed", size: 15))
                     
-                    HStack(spacing: 20) {
+                    HStack(spacing: 10) {
                         ForEach(colorSneakerData) { item in
-                            OneCircleColor(colorSize: item, select: $selectColor)
+                            OneCircleColor(colorSize: item, select: $select)
                                 .onTapGesture {
-                                    selectColor = item.id
+                                    select = item.id
                                 }
                         }
                     }
@@ -39,10 +40,10 @@ struct ColorSize: View {
                 })
             }
         }
-        .foregroundColor(.white)
-        .padding()
-        .frame(width: getRect().width , height: getRect().height / 2)
-        .background(Color.nikeBlack)
+//        .foregroundColor(.white)
+//        .padding()
+//        .frame(width: getRect().width , height: getRect().height / 2)
+//        .background(Color.nikeBlack)
     }
 }
 
@@ -61,8 +62,9 @@ struct OneCircleColor: View {
             Circle()
                 .strokeBorder(Color.nikeBlack, lineWidth: 0.1)
                 .background(colorSize.color).clipShape(Circle())
-                .frame(width: 15, height: 15)
+                .frame(width: 18, height: 18)
         }
+        .animation(.easeInOut)
     }
 }
 
@@ -70,12 +72,12 @@ struct BgCircleColor: View {
     var body: some View {
         Circle()
             .fill(Color.white)
-            .frame(width: 20, height: 20)
+            .frame(width: 25, height: 25)
     }
 }
 
 struct ColorSize_Previews: PreviewProvider {
     static var previews: some View {
-        ColorSize()
+        ColorSize(select: .constant(1))
     }
 }

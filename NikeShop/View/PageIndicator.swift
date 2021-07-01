@@ -8,22 +8,15 @@
 import SwiftUI
 
 struct PageIndicator: View {
+    var colorSize: ColorSneaker
+    @Binding var select: Int
+    
     var body: some View {
         HStack {
-            Spacer()
-            
             RoundedRectangle(cornerRadius: 100)
-                .fill(Color.white)
-                .frame(width: 20, height: 5)
-            
-            Circle()
-                .fill(Color.gray)
-                .frame(width: 5, height: 5)
-            Circle()
-                .fill(Color.gray)
-                .frame(width: 5, height: 5)
-            
-            Spacer()
+                .fill(select == colorSize.id ? Color.white : Color.gray)
+                .frame(width: select == colorSize.id ? 20 : 5, height: 5)
+                .animation(.easeInOut)
         }
     }
 }
