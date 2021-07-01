@@ -9,9 +9,12 @@ import SwiftUI
 
 struct AboutSneaker: View {
     @State private var selectSize: Int = 0
+    @Binding var selectColor: Int
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 50) {
+            Spacer()
+            
             VStack(alignment: .leading, spacing: 8) {
                 Text("NIKE AIR")
                     .font(Font.custom("DIN Condensed", size: 15))
@@ -48,42 +51,17 @@ struct AboutSneaker: View {
                 }
             }
             
-//            VStack(alignment: .leading, spacing: 8) {
-//                HStack {
-//                    VStack {
-//                        Text("COLOR")
-//                            .font(Font.custom("DIN Condensed", size: 15))
-//                        HStack {
-//                            Circle().fill(Color.nikeYellow)
-//                                .frame(width: 20, height: 20)
-//                            Circle().fill(Color.white)
-//                                .frame(width: 20, height: 20)
-//                            Circle().fill(Color.nikeBlue)
-//                                .frame(width: 20, height: 20)
-//                        }
-//                    }
-//                    Spacer()
-//                    Button(action: {}, label: {
-//                        Text("BUY")
-//                            .foregroundColor(.nikeBlack)
-//                            .font(Font.custom("DIN Condensed", size: 30))
-//                            .padding(15).padding(.top, 7)
-//                            .padding(.horizontal)
-//                            .background(RoundedRectangle(cornerRadius: 16)
-//                                            .fill(Color.nikeYellow))
-//                    })
-//                }
-//            }
+            ColorSize(select: $selectColor)
         }
         .foregroundColor(.white)
-        .padding()
-        .frame(width: getRect().width , height: getRect().height / 2)
-        .background(Color.nikeBlack)
+//        .padding()
+//        .frame(width: getRect().width , height: getRect().height / 2)
+//        .background(Color.nikeBlack)
     }
 }
 
 struct AboutSneaker_Previews: PreviewProvider {
     static var previews: some View {
-        AboutSneaker()
+        AboutSneaker(selectColor: .constant(1))
     }
 }

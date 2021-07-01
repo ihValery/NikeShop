@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct DetailSneaker: View {
+    var colorSize: ColorSneaker
+    @State private var selectColor: Int = 0
+    
     var body: some View {
         VStack {
-            GeometryReader { gr in
+            GeometryReader { _ in
                 TopPanel()
-                BigSneaker()
+                BigSneaker(colorSize: colorSize, selectColor: $selectColor)
             }
             
-            PageIndicator()
+            HStack {
+                ForEach(colorSneakerData) { item in
+                    PageIndicator(colorSize: item, select: $selectColor)
+                }
+            }
             
-            GeometryReader { gr in
-                
+            GeometryReader { _ in
+                AboutSneaker(selectColor: $selectColor)
+                    .padding(.bottom)
+                    .padding(.horizontal, 30)
             }
         }
         .background(BackgroundNike())
@@ -27,6 +36,7 @@ struct DetailSneaker: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailSneaker()
+        let colorsize = colorSneakerData[1]
+        DetailSneaker(colorSize: colorsize)
     }
 }

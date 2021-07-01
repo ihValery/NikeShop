@@ -14,7 +14,7 @@ struct OneSize: View {
     var body: some View {
         Group {
             Text(size.number).bold()
-                .frame(width: 30, height: 30)
+                .frame(width: 35, height: 35)
                 .background(RoundedRectangle(cornerRadius: 6).fill(select == size.id ? Color.nikeYellow : Color.white))
                 .foregroundColor(.nikeBlack)
                 .font(Font.custom("Avenir Next Condensed", size: 16))

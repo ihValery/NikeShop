@@ -11,7 +11,8 @@ import SwiftUI
 struct NikeShopApp: App {
     var body: some Scene {
         WindowGroup {
-            DetailSneaker()
+            let colorsize = colorSneakerData[1]
+            DetailSneaker(colorSize: colorsize)
         }
     }
 }

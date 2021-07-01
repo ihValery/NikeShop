@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BigSneaker: View {
+    var colorSize: ColorSneaker
+    @Binding var selectColor: Int
     
     var body: some View {
         ZStack {
@@ -19,22 +21,30 @@ struct BigSneaker: View {
                     .font(.system(size: 80).bold())
                 Spacer()
             }
-            Image("airJordanOneMid")
-                .resizable()
-                .scaledToFit()
-                .frame(width: getRect().width)
-                .rotationEffect(.degrees(-30))
-                .offset(x: -40)
-                .shadow(color: .black.opacity(0.8), radius: 20, x: 10, y: 30)
+           
+            ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(colorSneakerData) { item in
+//                    GeometryReader { gr in
+                    OneSneaker(width: getRect().width, select: $selectColor)
+                        
+                    }
+                }
+            }
+            
+            
+            
+            
+
+            
         }
         .offset(y: -30)
-//        .background(Color.nikeBlack)
-//        .frame(height: getRect().height / 2)
     }
 }
 
 struct BigSneaker_Previews: PreviewProvider {
     static var previews: some View {
-        BigSneaker()
+        let colorsize = colorSneakerData[1]
+        BigSneaker(colorSize: colorsize, selectColor: .constant(0))
     }
 }
