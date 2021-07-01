@@ -10,4 +10,5 @@ import SwiftUI
 extension Color {
     static let nikeBlack = Color(UIColor(red: 29.0/255.0, green: 32.0/255.0, blue: 32.0/255.0, alpha: 1.0))
     static let nikeYellow = Color(UIColor(red: 255.0/255.0, green: 191.0/255.0, blue: 1.0/255.0, alpha: 1.0))
+    static let nikeBlue = Color(UIColor(red: 13.0/255.0, green: 141.0/255.0, blue: 141.0/255.0, alpha: 1.0))
 }
