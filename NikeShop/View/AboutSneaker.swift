@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AboutSneaker: View {
-    @State private var selectSize = true
+    @State private var selectSize: Int = 0
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 30) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("NIKE AIR")
                     .font(Font.custom("DIN Condensed", size: 15))
@@ -36,12 +36,44 @@ struct AboutSneaker: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("SIZE")
                     .font(Font.custom("DIN Condensed", size: 15))
-                HStack(spacing: 20) {
-                    OneSize(size: "7", select: $selectSize)
-                    
-                    Spacer()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(sizeData) { item in
+                            OneSize(size: item, select: $selectSize)
+                                .onTapGesture {
+                                    selectSize = item.id
+                                }
+                        }
+                    }
                 }
             }
+            
+//            VStack(alignment: .leading, spacing: 8) {
+//                HStack {
+//                    VStack {
+//                        Text("COLOR")
+//                            .font(Font.custom("DIN Condensed", size: 15))
+//                        HStack {
+//                            Circle().fill(Color.nikeYellow)
+//                                .frame(width: 20, height: 20)
+//                            Circle().fill(Color.white)
+//                                .frame(width: 20, height: 20)
+//                            Circle().fill(Color.nikeBlue)
+//                                .frame(width: 20, height: 20)
+//                        }
+//                    }
+//                    Spacer()
+//                    Button(action: {}, label: {
+//                        Text("BUY")
+//                            .foregroundColor(.nikeBlack)
+//                            .font(Font.custom("DIN Condensed", size: 30))
+//                            .padding(15).padding(.top, 7)
+//                            .padding(.horizontal)
+//                            .background(RoundedRectangle(cornerRadius: 16)
+//                                            .fill(Color.nikeYellow))
+//                    })
+//                }
+//            }
         }
         .foregroundColor(.white)
         .padding()

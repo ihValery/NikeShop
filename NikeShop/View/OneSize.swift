@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct OneSize: View {
-    var size: String
-    @Binding var select: Bool
+    var size: Size
+    @Binding var select: Int
     
     var body: some View {
         Group {
-            Text(size).bold()
+            Text(size.number).bold()
                 .frame(width: 30, height: 30)
-                .background(RoundedRectangle(cornerRadius: 6).fill(select ? Color.nikeYellow : Color.white))
+                .background(RoundedRectangle(cornerRadius: 6).fill(select == size.id ? Color.nikeYellow : Color.white))
                 .foregroundColor(.nikeBlack)
                 .font(Font.custom("Avenir Next Condensed", size: 16))
         }
@@ -24,7 +24,8 @@ struct OneSize: View {
 
 struct OneSize_Previews: PreviewProvider {
     static var previews: some View {
-        OneSize(size: "7.5", select: .constant(true))
+        let size = sizeData[1]
+        OneSize(size: size, select: .constant(0))
             .preferredColorScheme(.dark)
     }
 }
