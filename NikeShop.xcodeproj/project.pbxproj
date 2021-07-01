@@ -22,8 +22,10 @@
 		80A74278268D591C00B0BA27 /* OneSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A74277268D591C00B0BA27 /* OneSize.swift */; };
 		80A7427A268D5D7600B0BA27 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A74279268D5D7600B0BA27 /* Size.swift */; };
 		80A7427C268D67EA00B0BA27 /* ColorSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7427B268D67EA00B0BA27 /* ColorSize.swift */; };
-		80A7427E268D6D9A00B0BA27 /* ColorSneaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7427D268D6D9A00B0BA27 /* ColorSneaker.swift */; };
+		80A7427E268D6D9A00B0BA27 /* Sneaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7427D268D6D9A00B0BA27 /* Sneaker.swift */; };
 		80A74280268D8B5200B0BA27 /* OneSneaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7427F268D8B5200B0BA27 /* OneSneaker.swift */; };
+		80A74283268DF61E00B0BA27 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A74282268DF61E00B0BA27 /* Carousel.swift */; };
+		80A74285268E098000B0BA27 /* ListSneaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A74284268E098000B0BA27 /* ListSneaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +46,10 @@
 		80A74277268D591C00B0BA27 /* OneSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSize.swift; sourceTree = "<group>"; };
 		80A74279268D5D7600B0BA27 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		80A7427B268D67EA00B0BA27 /* ColorSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSize.swift; sourceTree = "<group>"; };
-		80A7427D268D6D9A00B0BA27 /* ColorSneaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSneaker.swift; sourceTree = "<group>"; };
+		80A7427D268D6D9A00B0BA27 /* Sneaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sneaker.swift; sourceTree = "<group>"; };
 		80A7427F268D8B5200B0BA27 /* OneSneaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSneaker.swift; sourceTree = "<group>"; };
+		80A74282268DF61E00B0BA27 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		80A74284268E098000B0BA27 /* ListSneaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSneaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 				80A74254268D228300B0BA27 /* NikeShopApp.swift */,
 				80A74264268D231600B0BA27 /* Model */,
 				80A74265268D231C00B0BA27 /* View */,
+				80A74281268DF54700B0BA27 /* Carousel */,
 				80A74266268D319900B0BA27 /* Extension */,
 				80A74263268D22A100B0BA27 /* System32 */,
 			);
@@ -109,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				80A74279268D5D7600B0BA27 /* Size.swift */,
-				80A7427D268D6D9A00B0BA27 /* ColorSneaker.swift */,
+				80A7427D268D6D9A00B0BA27 /* Sneaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +143,15 @@
 				80A7426B268D334C00B0BA27 /* Font.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		80A74281268DF54700B0BA27 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				80A74282268DF61E00B0BA27 /* Carousel.swift */,
+				80A74284268E098000B0BA27 /* ListSneaker.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,9 +230,11 @@
 				80A74276268D4DAF00B0BA27 /* AboutSneaker.swift in Sources */,
 				80A74257268D228300B0BA27 /* DetailSneaker.swift in Sources */,
 				80A74278268D591C00B0BA27 /* OneSize.swift in Sources */,
+				80A74285268E098000B0BA27 /* ListSneaker.swift in Sources */,
+				80A74283268DF61E00B0BA27 /* Carousel.swift in Sources */,
 				80A7427A268D5D7600B0BA27 /* Size.swift in Sources */,
 				80A7426C268D334C00B0BA27 /* Font.swift in Sources */,
-				80A7427E268D6D9A00B0BA27 /* ColorSneaker.swift in Sources */,
+				80A7427E268D6D9A00B0BA27 /* Sneaker.swift in Sources */,
 				80A74255268D228300B0BA27 /* NikeShopApp.swift in Sources */,
 				80A74270268D3BE400B0BA27 /* PageIndicator.swift in Sources */,
 				80A74280268D8B5200B0BA27 /* OneSneaker.swift in Sources */,

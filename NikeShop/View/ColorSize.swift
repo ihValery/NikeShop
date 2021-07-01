@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ColorSize: View {
-//    @State private var selectColor: Int = 0
     @Binding var select: Int
     
     var body: some View {
@@ -19,7 +18,7 @@ struct ColorSize: View {
                         .font(Font.custom("DIN Condensed", size: 15))
                     
                     HStack(spacing: 10) {
-                        ForEach(colorSneakerData) { item in
+                        ForEach(sneakersData) { item in
                             OneCircleColor(colorSize: item, select: $select)
                                 .onTapGesture {
                                     select = item.id
@@ -48,7 +47,7 @@ struct ColorSize: View {
 }
 
 struct OneCircleColor: View {
-    var colorSize: ColorSneaker
+    var colorSize: Sneaker
     @Binding var select: Int
     
     var body: some View {
