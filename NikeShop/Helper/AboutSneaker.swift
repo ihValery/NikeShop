@@ -36,19 +36,23 @@ struct AboutSneaker: View {
                 .font(.system(size: 8))
             }
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text("SIZE")
-                    .font(Font.custom("DIN Condensed", size: 15))
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
-                        ForEach(sizeData) { item in
-                            OneSize(size: item, select: $selectSize)
-                                .onTapGesture {
-                                    selectSize = item.id
-                                }
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("SIZE")
+                        .font(Font.custom("DIN Condensed", size: 15))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(sizeData) { item in
+                                OneSize(size: item, select: $selectSize)
+                                    .onTapGesture {
+                                        selectSize = item.id
+                                    }
+                            }
                         }
                     }
                 }
+                .frame(width: 220)
+                Spacer()
             }
             
             ColorSize(select: $selectColor)
