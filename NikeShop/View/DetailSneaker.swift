@@ -26,6 +26,7 @@ struct DetailSneaker: View {
             
             VStack {
                 BigSneaker(sneaker: sneaker, selectColor: $selectColor, showDetail: $showDetail)
+                    .offset(x: 0, y: showDetail ? -210 : 40)
                 
                 VStack {
                     HStack {
@@ -42,6 +43,8 @@ struct DetailSneaker: View {
             }
     
             CardOneMain(showDetail: $showDetail)
+            OneSneaker(sneaker: sneaker, page: $selectColor)
+                .offset(x: 0, y: showDetail ? -210 : 40)
             
             VStack {
                 TopPanel(showDetail: $showDetail)
@@ -57,7 +60,7 @@ struct DetailSneaker: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let sneaker = sneakersData[1]
+        let sneaker = sneakersData[0]
         DetailSneaker(sneaker: sneaker)
     }
 }

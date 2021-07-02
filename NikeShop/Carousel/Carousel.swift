@@ -10,8 +10,7 @@ import SwiftUI
 struct Carousel: UIViewRepresentable {
     var width: CGFloat
     @Binding var page: Int
-    
-    
+
     func makeUIView(context: Context) -> UIScrollView {
         let total = width * CGFloat(sneakersData.count)
         let view = UIScrollView()

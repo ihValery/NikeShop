@@ -23,9 +23,12 @@ struct BigSneaker: View {
                     .fontWeight(.bold)
                 Spacer()
             }
-            .opacity(showDetail ? 1 : 0)
+            .offset(x: showDetail ? 0 : -getRect().width)
+            .animation(.easeInOut.speed(0.7))
             
             Carousel(width: getRect().width, page: $selectColor)
+                .opacity(showDetail ? 1 : 0)
+                .transition(.opacity)
         }
     }
 }
