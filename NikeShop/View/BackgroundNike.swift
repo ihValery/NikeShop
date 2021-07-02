@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct BackgroundNike: View {
+    @Binding var showDetail: Bool
+    
     var body: some View {
         ZStack {
             Color.nikeBlack
             
             Circle().fill(Color.nikeYellow)
                 .frame(width: 500, height: 500)
-                .offset(x: getRect().width / 2 - 20, y: -(getRect().height / 2) + 150)
+                .offset(x: showDetail ? getRect().width / 2 - 20 : getRect().width * 3,
+                        y: showDetail ? -(getRect().height / 2) + 150 : -getRect().height)
+                .animation(.easeInOut.speed(0.5))
         }
 //        .frame(width: getRect().width, height: getRect().height)
         .ignoresSafeArea()
@@ -23,6 +27,6 @@ struct BackgroundNike: View {
 
 struct BackgroundNike_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundNike()
+        BackgroundNike(showDetail: .constant(true))
     }
 }

@@ -10,33 +10,48 @@ import SwiftUI
 struct DetailSneaker: View {
     var sneaker: Sneaker
     @State private var selectColor: Int = 0
+    @State private var showDetail: Bool = true
     
     var body: some View {
         ZStack {
+            VStack(spacing: 70) {
+                TopPanelMain(showDetail: $showDetail)
+                
+                ButtonPanelMain()
+                Spacer()
+            }
+            .zIndex(1)
+            .offset(y: showDetail ? -getRect().height : 0)
+            
+            
             VStack {
-                BigSneaker(sneaker: sneaker, selectColor: $selectColor)
+                BigSneaker(sneaker: sneaker, selectColor: $selectColor, showDetail: $showDetail)
                 
                 VStack {
                     HStack {
-                        Spacer()
                         ForEach(sneakersData) { item in
                             PageIndicator(colorSize: item, select: $selectColor)
                         }
-                        Spacer()
                     }
                     
                     AboutSneaker(selectColor: $selectColor)
                         .padding(.bottom)
                         .padding(.horizontal, 30)
                 }
+                .offset(y: showDetail ? 0 : getRect().height + getRect().height / 2)
             }
+    
+            CardOneMain(showDetail: $showDetail)
             
             VStack {
-                TopPanel()
+                TopPanel(showDetail: $showDetail)
                 Spacer()
             }
+            
+            BottomPanelMain()
+                .offset(y: showDetail ? 200 : 0)
         }
-        .background(BackgroundNike())
+        .background(BackgroundNike(showDetail: $showDetail))
     }
 }
 

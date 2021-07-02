@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Carousel: UIViewRepresentable {
     var width: CGFloat
-    var height: CGFloat
     @Binding var page: Int
     
     
@@ -20,14 +19,14 @@ struct Carousel: UIViewRepresentable {
         //Разрешено ли разбиение по страницам для просмотра с прокруткой.
         view.isPagingEnabled = true
         
-        view.contentSize = CGSize(width: total, height: .zero)
+        view.contentSize = CGSize(width: total, height: 1)
         view.bounces = true
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
         view.delegate = context.coordinator
         
         let viewController = UIHostingController(rootView: ListSneaker(page: $page))
-        viewController.view.frame = CGRect(x: 0, y: 0, width: total, height: height - 40)
+        viewController.view.frame = CGRect(x: 0, y: 0, width: total, height: width - 40)
         viewController.view.backgroundColor = .clear
         
         view.addSubview(viewController.view)
