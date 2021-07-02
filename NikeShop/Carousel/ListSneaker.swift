@@ -13,7 +13,7 @@ struct ListSneaker: View {
     var body: some View {
         HStack(spacing: 0) {
             ForEach(sneakersData) { item in
-                OneSneaker(width: getRect().width, sneaker: item, select: $page)
+                OneSneaker(sneaker: item, page: $page)
             }
         }
     }

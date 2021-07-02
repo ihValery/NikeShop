@@ -10,7 +10,8 @@ import SwiftUI
 struct BigSneaker: View {
     var sneaker: Sneaker
     @Binding var selectColor: Int
-
+    @Binding var showDetail: Bool
+    
     var body: some View {
         ZStack {
             VStack {
@@ -22,9 +23,9 @@ struct BigSneaker: View {
                     .fontWeight(.bold)
                 Spacer()
             }
-            GeometryReader { gr in
-                Carousel(width: getRect().width, height: gr.frame(in: .global).height, page: $selectColor)
-            }
+            .opacity(showDetail ? 1 : 0)
+            
+            Carousel(width: getRect().width, page: $selectColor)
         }
     }
 }
@@ -32,6 +33,6 @@ struct BigSneaker: View {
 struct BigSneaker_Previews: PreviewProvider {
     static var previews: some View {
         let sneaker = sneakersData[1]
-        BigSneaker(sneaker: sneaker, selectColor: .constant(0))
+        BigSneaker(sneaker: sneaker, selectColor: .constant(0), showDetail: .constant(true))
     }
 }
