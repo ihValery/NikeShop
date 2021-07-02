@@ -19,16 +19,14 @@ struct BigSneaker: View {
                 Spacer()
                 Text("NIKE AIR")
                     .foregroundColor(.white)
-                    .font(.system(size: 80))
                     .fontWeight(.bold)
+                    .font(.system(size: 80))
+                    .animation(.linear)
                 Spacer()
             }
-            .offset(x: showDetail ? 0 : -getRect().width)
-            .animation(.easeInOut.speed(0.7))
+            .opacity(showDetail ? 1 : 0)
             
             Carousel(width: getRect().width, page: $selectColor)
-                .opacity(showDetail ? 1 : 0)
-                .transition(.opacity)
         }
     }
 }

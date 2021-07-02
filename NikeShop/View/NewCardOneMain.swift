@@ -1,5 +1,5 @@
 //
-//  CardOneMain.swift
+//  NewCardOneMain.swift
 //  NikeShop
 //
 //  Created by Валерий Игнатьев on 2.07.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardOneMain: View {
+struct NewCardOneMain: View {
     @Binding var showDetail: Bool
     
     var body: some View {
@@ -18,7 +18,7 @@ struct CardOneMain: View {
                     .font(Font.custom("DIN Condensed", size: 15))
                 Text("AIR JORDAN 1 MID SE GC")
                     .font(Font.custom("DIN Condensed", size: 26))
-                Text("¥579")
+                Text("¥856")
                     .font(Font.custom("DIN Condensed", size: 30))
                 Spacer()
                 VStack(alignment: .leading) {
@@ -30,25 +30,30 @@ struct CardOneMain: View {
                 
             }
             .padding()
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.title.bold())
+                        .padding(35)
+                        .background(CustomCorners(corner: [.topLeft, .bottomRight], radius: 50)
+                                        .fill(Color.nikeYellow))
+                }
+            }
+            
         }
-        .background(RoundedRectangle(cornerRadius: 50).fill(Color.gray).opacity(0.7))
         .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
-        
-        .frame(width: 200, height: 300)
-        .offset(x: -50, y: 50)
-        
-        Image("airJordanOneMidBlue")
-            .resizable()
-            .scaledToFit()
-            .rotationEffect(.degrees(-30))
-            .offset(x: -10, y: 50)
-            .shadow(color: .black.opacity(0.8), radius: 20, x: 20, y: 10)
-            .frame(width: 350, height: 350)
+        .frame(width: showDetail ? 0 : 290,
+               height: showDetail ? 0 : 400)
+        .offset(x: -30, y: 30)
+        .opacity(showDetail ? 0 : 1)
     }
 }
 
-struct CardOneMain_Previews: PreviewProvider {
+struct NewCardOneMain_Previews: PreviewProvider {
     static var previews: some View {
-        CardOneMain(showDetail: .constant(false))
+        NewCardOneMain(showDetail: .constant(false))
     }
 }
